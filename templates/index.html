@@ -1,0 +1,6 @@
+{% extends "main.html" %}
+{% block body %}
+	<h1>Welcome to Spotinator</h1>
+	<a href="{{ url_for('create') }}">Create a session</a>
+	<a href="{{ url_for('join') }}">Join a session</a>
+{% endblock %}

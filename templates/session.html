@@ -1,0 +1,28 @@
+{% extends "main.html" %}
+{% block head %}
+
+		<script type="text/javascript">
+		$(document).ready(function() {
+		    $("#pause").click(function(){
+    			$.ajax({
+      				type: 'POST',
+      				url: "/pausePlay",
+      				data: {value: document.getElementById("pause").innerHTML},
+      				dataType: "text",
+      				success: function(data){
+                		 document.getElementById("pause").innerHTML = JSON.parse(data)['word']
+              		}
+    			});
+			});
+		});
+  		</script>
+
+{% endblock %}
+{% block body %}
+
+	<h1>Now Playing:</h1>
+	<h1>{{track}}</h1>
+
+	<button id = "pause" name="pause">pause</button>
+
+{% endblock %}

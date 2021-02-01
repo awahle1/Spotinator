@@ -1,0 +1,6 @@
+{% extends "main.html" %}
+{% block body %}
+	{% for playlist in playlists %}
+		<a href="{{ url_for('session', playlist_name=playlist) }}"><h5>{{playlist}}</h5></a>
+	{% endfor %}
+{% endblock %}
