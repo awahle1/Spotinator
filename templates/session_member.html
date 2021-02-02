@@ -3,22 +3,12 @@
 
 		<script type="text/javascript">
 		$(document).ready(function() {
-		    $("#pause").click(function(){
-    			$.ajax({
-      				type: 'POST',
-      				url: "/pausePlay",
-      				data: {value: document.getElementById("pause").innerHTML},
-      				dataType: "text",
-      				success: function(data){
-                		 document.getElementById("pause").innerHTML = JSON.parse(data)['word']
-              		}
-    			});
-			});
-			$("#vote").click(function(){
+
+        $("#vote").click(function(){
           $.ajax({
               type: 'POST',
               url: "/vote",
-              data: {value: 2},
+              data: {value: 1},
               dataType: "text",
               success: function(data){
                 var str1 = "Votes: "
@@ -38,19 +28,19 @@
                   }
           });
       });
-	});
+
+
+		});
   		</script>
 
 {% endblock %}
 {% block body %}
 
 	<h1>Now Playing:</h1>
-	<h1 id = 'track'>{{track}}</h1>
-
-	<button id = "pause" name="pause">pause</button>
+	<h1 id='track'>{{track}}</h1>
 
 	<button id="vote">Vote to skip</button>
-  	<h5 id="count">Votes: {{votes}}</h5>
-  	<h5 id="members">Votes needed to skip {{required}}</h5>
+  <h5 id="count">Votes: {{votes}}</h5>
+  <h5 id="members">Votes needed to skip {{required}}</h5>
 
 {% endblock %}
